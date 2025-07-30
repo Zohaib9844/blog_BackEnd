@@ -46,10 +46,13 @@ const blogsRouter = require('./routes/blogs');
 app.use('/users', usersRouter);
 app.use('/blogs', blogsRouter);
 
-// Export the app for Vercel
+app.get('/', (req, res)=>{
+  console.log("Ok we good");
+  res.send('We good')
+});
+
 module.exports = app;
 
-// Start the server locally if not in production (e.g., for development)
 if (process.env.NODE_ENV !== 'production') {
   app.listen(port, () => {
     console.log(`🚀 Server is running on http://localhost:${port}`);
